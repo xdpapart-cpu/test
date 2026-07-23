@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set Submission Date - Northern Zambales College</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+    <style>
+        body {
+            background-color: #f0e6d2; 
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 400px;
+            text-align: center;
+            border-top: 5px solid #8b0000; 
+        }
+        h2 {
+            color: #654321; 
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            text-align: left;
+            color: #654321;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #8b0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #a52a2a;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Set Submission Schedule</h2>
+        <p style="color: #654321; margin-bottom: 15px;">Para kay: <strong>{{ student.firstname }}</strong></p>
+        
+        <!-- Papunta ito sa approve route na may POST method -->
+        <form action="{{ url_for('approve_student', id=student.id) }}" method="POST">
+            <label for="sched_date">Piliin ang Petsa ng Pagpasa:</label>
+            <input type="date" id="sched_date" name="sched_date" required>
+            
+            <button type="submit">I-approve at Ipadala ang Email</button>
+        </form>
+    </div>
+</body>
+</html>

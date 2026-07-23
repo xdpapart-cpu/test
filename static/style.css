@@ -1,0 +1,68 @@
+/* Buong Page Setup */
+body {
+    background-color: #F0E68C; /* Khaki */
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    font-family: 'Segoe UI', sans-serif;
+    color: #654321;          /* Dark Brown */
+}
+
+/* Container */
+.main-container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Headers */
+h1 {
+    color: #8B0000;          /* Red */
+    margin-bottom: 5px;
+}
+
+h2 {
+    color: #654321;          /* Dark Brown */
+    margin-bottom: 30px;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    flex-direction: column;  /* Para mag-stack sila (isang column) */
+    align-items: center;     /* Siguradong nasa gitna ang mga button */
+    gap: 20px;               /* Space sa pagitan ng Enroll at Admin */
+}
+
+/* Buttons */
+.btn {
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-enroll {
+    background-color: #8B0000; /* Red */
+    color: white;
+    padding: 15px 40px;
+    font-size: 18px;
+}
+
+.btn-enroll:hover {
+    background-color: #a50000;
+}
+
+.btn-admin {
+    color: #654321; /* Dark Brown */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #654321;
+    width: 120px;
+}
+
+.btn-admin:hover {
+    background-color: #654321;
+    color: white;
+}

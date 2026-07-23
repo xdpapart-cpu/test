@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Form - Northern Zambales College</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='enroll.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Enrollment Form</h1>
+        <form action="/submit" method="POST" enctype="multipart/form-data">
+    <input type="text" name="firstname" placeholder="First Name" required>
+    <input type="text" name="middlename" placeholder="Middle Name">
+    <input type="text" name="lastname" placeholder="Last Name" required>
+    
+   <input type="text" name="Address" placeholder="Address" required>
+
+
+    <label for="email">Contacts:</label>
+<input type="email" id="email" name="email" required placeholder="example@gmail.com">
+<input type="tel" id="phone" name="phone" required placeholder="09849727456">
+
+
+    <select name="sex">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    
+    <input type="number" name="age" placeholder="Age" required>
+    
+    <select name="year" required>
+        <option value="" disabled selected>Grade Level</option>
+        <option value="11">Grade 11</option>
+        <option value="12">Grade 12</option>
+    </select>
+
+    <select name="strand" required>
+        <option value="" disabled selected>Select Strand/Course</option>
+        <option value="stem">STEM</option>
+        <option value="abm">ABM</option>
+        <option value="gas">GAS</option>
+        <option value="humss">HUMSS</option>
+        <optgroup label="TVL">
+            <option value="css">CSS</option>
+            <option value="cookery">Cookery</option>
+        </optgroup>
+    </select>
+
+
+<input type="text" name="father_name" placeholder="father's name" required>
+    <input type="text" name="father_phone" placeholder="Father's Phone Number" required>
+    <input type="text" name="mother_name" placeholder="mother'sname" required>
+    <input type="text" name="mother_phone" placeholder="Mother's Phone Number" required>
+
+    <div class="requirements">
+        <label>Good Moral:</label> <input type="file" name="good_moral" required>
+        <label>Form 137:</label> <input type="file" name="form137" required>
+        <label>PSA:</label> <input type="file" name="psa" required>
+        <label>Cert. of Graduation:</label> <input type="file" name="cert_grad" required>
+    </div>
+    
+    <button type="submit">SUBMIT ENROLLMENT</button>
+</form> 
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

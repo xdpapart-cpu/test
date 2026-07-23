@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+
+<div class="main-container" style="max-width: 1200px; margin: auto; padding: 20px;">
+    <h1>Admin Dashboard</h1>
+    <div class="stats">
+        <h3>Total Enrolled: {{ students|length }}</h3>
+    </div>
+
+    <!-- Dito yung wrap para sa mobile scroll -->
+    <div class="table-container">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Sex</th>
+                    <th>Age</th>
+                    <th>Grade</th>
+                    <th>Strand/Course</th>
+                    <th>Parents Info</th>
+                    <th>Requirements</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in students %}
+                <tr>
+                    <td>{{ s.firstname }} {{ s.middlename }} {{ s.lastname }}</td>
+                    <td>{{ s.email }}</td>
+                    <td>{{ s.Address }}</td>
+                    <td>{{ s.sex }}</td>
+                    <td>{{ s.age }}</td>
+                    <td>Grade {{ s.year }}</td>
+                    <td>{{ s.strand.upper() }}</td>
+                    <td>
+                        F: {{ s.father_name }} ({{ s.father_phone }})<br>
+                        M: {{ s.mother_name }} ({{ s.mother_phone }})
+                    </td>
+                    <td>
+                        <div class="req-links">
+                            <a href="{{ url_for('view_file', filename=s.id|string + '_' + s.lastname + '_' + s.firstname + '_good_moral.jpg') }}" target="_blank">Good Moral</a><br>
+                            <a href="{{ url_for('view_file', filename=s.id|string + '_' + s.lastname + '_' + s.firstname + '_form137.jpg') }}" target="_blank">Form 137</a><br>
+                            <a href="{{ url_for('view_file', filename=s.id|string + '_' + s.lastname + '_' + s.firstname + '_psa.jpg') }}" target="_blank">PSA</a><br>
+                            <a href="{{ url_for('view_file', filename=s.id|string + '_' + s.lastname + '_' + s.firstname + '_cert_grad.jpg') }}" target="_blank">Cert. Grad</a>
+                        </div>
+                    </td>
+                    <td>
+                        {% if s.status == 'Approved' %}
+                            <span style="color: green; font-weight: bold;">Approved</span><br>
+                            <a href="{{ url_for('disapprove_student', id=s.id) }}" style="color: red; text-decoration: underline;">Disapprove</a>
+                        {% else %}
+                            <a href="{{ url_for('set_date', id=s.id) }}" class="btn-approve">Approve</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <a href="/">Back to Home</a>
+</div>
+
+</body>
+</html>

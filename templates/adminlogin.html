@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Northern Zambales College</title>
+    <!-- Link sa iyong external style.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='adminlogin.css') }}">
+</head>
+<body class="login-page">
+
+    <div class="login-container">
+        <h2>Admin Login</h2>
+
+        <!-- Dito lalabas ang error message kung mali ang password -->
+        {% if error %}
+            <div class="error-msg">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <form method="POST">
+            <input type="password" name="password" placeholder="Enter Admin Key" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <br>
+        <a href="/" style="color: #654321; text-decoration: none; font-size: 0.8em;">Back to Home</a>
+    </div>
+
+</body>
+</html>
